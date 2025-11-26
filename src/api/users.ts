@@ -37,6 +37,7 @@ function generateRandomSHA256Hash(): string {
   // should we be using crypto.randomBytes instead of crypto.pseudoRandomBytes?
   return crypto
     .createHash("sha256")
+    // eslint-disable-next-line security/detect-pseudoRandomBytes
     .update(crypto.pseudoRandomBytes(32))
     .digest("hex");
 }
