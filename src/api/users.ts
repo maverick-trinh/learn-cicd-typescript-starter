@@ -35,9 +35,10 @@ export async function handlerUsersGet(req: Request, res: Response, user: User) {
 
 function generateRandomSHA256Hash(): string {
   // should we be using crypto.randomBytes instead of crypto.pseudoRandomBytes?
-  return crypto
-    .createHash("sha256")
-    // eslint-disable-next-line security/detect-pseudoRandomBytes
-    .update(crypto.pseudoRandomBytes(32))
-    .digest("hex");
+  return (
+    crypto
+      .createHash("sha256")
+      .update(crypto.randomBytes(32))
+      .digest("hex")
+  );
 }
