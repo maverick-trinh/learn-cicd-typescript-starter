@@ -13,6 +13,7 @@ type APIConfig = {
 
 type DBConfig = {
   url: string | undefined;
+  authToken: string | undefined;
 };
 
 export const config: Config = {
@@ -21,6 +22,7 @@ export const config: Config = {
     filepathRoot: "./src/assets",
   },
   db: {
-    url: process.env.DATABASE_URL,
+    url: process.env.TURSO_CONNECTION_URL || process.env.DATABASE_URL,
+    authToken: process.env.TURSO_AUTH_TOKEN,
   },
 };
