@@ -11,11 +11,11 @@ git pull origin main
 
 # Stop and remove old containers
 echo "Stopping old containers..."
-docker-compose down
+docker compose down
 
 # Build and start new containers
 echo "Building and starting containers..."
-docker-compose up -d --build
+docker compose up -d --build
 
 # Clean up old images
 echo "Cleaning up old images..."
@@ -23,4 +23,4 @@ docker image prune -f
 
 echo "Deployment completed successfully!"
 echo "Checking container status..."
-docker-compose ps
+docker compose ps
